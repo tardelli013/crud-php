@@ -29,6 +29,7 @@
                             <th scope="col">Telefone</th>
                             <th scope="col">Email</th>
                             <th scope="col">Equipamento</th>
+                            <th scope="col">Data Reserva</th>
                             <th scope="col">Ação</th>
                         </tr>
                     </thead>
@@ -41,12 +42,13 @@
                         foreach($pdo->query($sql)as $row)
                         {
                             echo '<tr>';
-			                      echo '<th scope="row">'. $row['id'] . '</th>';
+                            echo '<th scope="row">'. $row['id'] . '</th>';
                             echo '<td>'. $row['nome'] . '</td>';
                             echo '<td>'. $row['endereco'] . '</td>';
                             echo '<td>'. $row['telefone'] . '</td>';
                             echo '<td>'. $row['email'] . '</td>';
                             echo '<td>'. $row['equipamento'] . '</td>';
+                            echo '<td>'. $row['dtreserva'] . '</td>';
                             echo '<td width=250>';
                             echo '<a class="btn btn-primary" href="read.php?id='.$row['id'].'">Info</a>';
                             echo ' ';

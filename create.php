@@ -74,7 +74,17 @@
                         echo "</select>";
                         mysqli_close($conn);
                     ?>
-                    
+
+                    </div>
+                </div>
+
+                <div class="control-group <?php echo !empty($datReservaErro)?'error ': '';?>">
+                    <label class="control-label">Data Reserva</label>
+                    <div class="controls">
+                        <input size="40" class="form-control" name="dataReserva" type="text"  placeholder="DD/MM/YYYY" required="" value="<?php echo !empty($dataReserva)?$dataReserva: '';?>">
+                        <?php if(!empty($emailErro)): ?>
+                            <span class="help-inline"><?php echo $dataReservaErro;?></span>
+                            <?php endif;?>
                     </div>
                 </div>
 
@@ -110,12 +120,14 @@
         $telefoneErro = null;
         $emailErro = null;
         $equipamentoErro = null;
+        $dataReservaErro = null;
 
         $nome = $_POST['nome'];
         $endereco = $_POST['endereco'];
         $telefone = $_POST['telefone'];
         $email = $_POST['email'];
         $equipamento = $_POST['equipamento'];
+        $dataReserva = $_POST['dataReserva'];
 
         //Validaçao dos campos:
         $validacao = true;
@@ -149,9 +161,9 @@
             $validacao = false;
         }
 
-        elseif (!filter_var($email,FILTER_VALIDATE_EMAIL))
+        if(empty($dataReserva))
         {
-            $emailError = 'Por favor digite um endereço de email válido!';
+            $dataReservaErro = 'Por favor escolha a data de reserva do equipamento';
             $validacao = false;
         }
 
@@ -160,9 +172,9 @@
         {
             $pdo = Banco::conectar();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO pessoa (nome, endereco, telefone, email, equipamento) VALUES(?,?,?,?,?)";
+            $sql = "INSERT INTO pessoa (nome, endereco, telefone, email, equipamento, dtreserva) VALUES(?,?,?,?,?,?)";
             $q = $pdo->prepare($sql);
-            $q->execute(array($nome,$endereco,$telefone,$email,$equipamento));
+            $q->execute(array($nome,$endereco,$telefone,$email,$equipamento,$dataReserva));
             Banco::desconectar();
             header("Location: index.php");
         }
