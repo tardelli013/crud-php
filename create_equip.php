@@ -120,11 +120,6 @@
             $serialErro = 'Por favor digite o endereço de descricao';
             $validacao = false;
         }
-        elseif (!filter_var($descricao,FILTER_VALIDATE_DESCRICAO))
-        {
-            $descricaoError = 'Por favor digite um endereço de descricao válido!';
-            $validacao = false;
-        }
 
         //Inserindo no Banco:
         if($validacao)
