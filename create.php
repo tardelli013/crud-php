@@ -63,7 +63,7 @@
                     <div class="controls">
                     <?php 
 
-                        echo "<select name=\"equipamento\" value=\"$equipamento\">"; 
+                        echo "<select name=\"equipamento\" value=\"<?php echo !empty($equipamento)?$equipamento: '';?>\">"; 
                         foreach($listEquipamentos as $row){
                             echo "<option value='".$row['nome']."'>".$row['nome']."</option>"; 
                         }
@@ -96,8 +96,6 @@
 
 <?php
     require 'banco.php';
-
-    $equipamento = null;
 
     if(!empty($_POST))
     {
@@ -165,6 +163,8 @@
         }
     } else {
 
+        $equipamento = null;
+        
         $pdo2 = Banco::conectar();
 		$pdo2->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$sql2 = "SELECT nome FROM equipamento ORDER BY id DESC";
