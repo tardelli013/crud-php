@@ -63,11 +63,11 @@
                     <div class="controls">
                     <?php 
                         include 'banco.php';
-                        $pdo = Banco::conectar();
-                        $sql = 'SELECT nome FROM equipamento ORDER BY id DESC';
+                        $pdo2 = Banco::conectar();
+                        $sql2 = 'SELECT nome FROM equipamento ORDER BY id DESC';
 
                         echo "<select name=\"equipamento\">"; 
-                        foreach($pdo->query($sql)as $row){
+                        foreach($pdo2->query($sql2)as $row){
                             echo "<option value='".$row['nome']."'>".$row['nome']."</option>"; 
                         }
                         echo "</select>";
