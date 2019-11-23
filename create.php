@@ -81,7 +81,7 @@
                 <div class="control-group <?php echo !empty($datReservaErro)?'error ': '';?>">
                     <label class="control-label">Data Reserva</label>
                     <div class="controls">
-                        <input size="40" class="form-control" name="dataReserva" type="text"  placeholder="DD/MM/YYYY" required="" value="<?php echo !empty($dataReserva)?$dataReserva: '';?>">
+                        <input size="40" class="form-control datepicker" name="dataReserva" type="date"  placeholder="Selecione a data" required="" value="<?php echo !empty($dataReserva)?$dataReserva: '';?>">
                         <?php if(!empty($emailErro)): ?>
                             <span class="help-inline"><?php echo $dataReservaErro;?></span>
                             <?php endif;?>
