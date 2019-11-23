@@ -58,7 +58,7 @@
                     </div>
                 </div>
 
-                <div class="control-group <?php echo !empty($emailErro)?'error ': '';?>">
+                <div class="control-group <?php echo !empty($equipamentoErro)?'error ': '';?>">
                     <label class="control-label">Equipamento</label>
                     <div class="controls">
                     <?php 
