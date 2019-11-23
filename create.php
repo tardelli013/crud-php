@@ -61,7 +61,7 @@
                 <div class="control-group <?php echo !empty($emailErro)?'error ': '';?>">
                     <label class="control-label">Equip.</label>
                     <div class="controls">
-                    <?
+                    <?php 
                         include 'banco.php';
                         $pdo = Banco::conectar();
                         $sql = 'SELECT nome FROM equipamento ORDER BY id DESC';
