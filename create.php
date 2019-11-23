@@ -62,17 +62,17 @@
                     <label class="control-label">Equipamento</label>
                     <div class="controls">
                     <?php 
-
+                        require 'banco.php';
                         $pdo2 = Banco::conectar();
                         $pdo2->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                         $sql2 = "SELECT nome FROM equipamento ORDER BY id DESC";
-                        Banco::desconectar();
 
                         echo "<select name=\"equipamento\">"; 
                         foreach($pdo2->query($sql2) as $row){
                             echo "<option value='".$row['nome']."'>".$row['nome']."</option>"; 
                         }
                         echo "</select>";
+                        Banco::desconectar();
 
                     ?>
                     </div>
