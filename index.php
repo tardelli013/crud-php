@@ -19,6 +19,7 @@
             <div class="row">
                 <p>
                     <a href="create.php" class="btn btn-success">Adicionar</a>
+                    <a href="create_equip.php" class="btn btn-success">Adicionar Equipamentos</a>
                 </p>
                 <table class="table table-striped">
                     <thead>
