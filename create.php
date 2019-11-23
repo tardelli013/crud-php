@@ -71,6 +71,8 @@
                             echo "<option value='".$row['nome']."'>".$row['nome']."</option>"; 
                         }
                         echo "</select>";
+
+                        Banco::desconectar();
                     ?>
                     </div>
                 </div>
