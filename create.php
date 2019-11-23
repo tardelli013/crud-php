@@ -64,7 +64,7 @@
                     <?php 
 
                         echo "<select name=\"equipamento\">"; 
-                        foreach($equipamentos as $row){
+                        foreach($pdo2->query($sql2)as $row)
                             echo "<option value='".$row['nome']."'>".$row['nome']."</option>"; 
                         }
                         echo "</select>";
@@ -163,12 +163,11 @@
         }
     } else {
 
-        $pdo = Banco::conectar();
-		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "SELECT nome FROM equipamento ORDER BY id DESC";
-		$q = $pdo->prepare($sql);
-		$q->execute();
-		$equipamentos = $q->fetch(PDO::FETCH_ASSOC);
+        $pdo2 = Banco::conectar();
+		$pdo2->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$sql2 = "SELECT nome FROM equipamento ORDER BY id DESC";
+        
+        
 		Banco::desconectar();
     }
 ?>
