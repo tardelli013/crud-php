@@ -97,11 +97,6 @@
 <?php
     require 'banco.php';
 
-    $pdo2 = Banco::conectar();
-    $sql2 = 'SELECT nome FROM equipamento ORDER BY id DESC';
-    $equipamentos = $pdo2->query($sql2);
-    Banco::desconectar();
-
     if(!empty($_POST))
     {
         //Acompanha os erros de validação
@@ -166,5 +161,14 @@
             Banco::desconectar();
             header("Location: index.php");
         }
+    } else {
+
+        $pdo = Banco::conectar();
+		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$sql = "SELECT nome FROM equipamento ORDER BY id DESC";
+		$q = $pdo->prepare($sql);
+		$q->execute();
+		$equipamentos = $q->fetch(PDO::FETCH_ASSOC);
+		Banco::desconectar();
     }
 ?>
