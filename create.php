@@ -64,12 +64,12 @@
                     <?
                         include 'banco.php';
                         $pdo = Banco::conectar();
-                        $sql = 'SELECT * FROM equipamento ORDER BY id DESC';
+                        $sql = 'SELECT nome FROM equipamento ORDER BY id DESC';
 
                         foreach($pdo->query($sql)as $row){
                             echo "<select name=\"pcid\">"; 
                             echo "<option size =30 ></option>";
-                            echo "<option value='".$row['PcID']."'>".$row['PcID']."</option>"; 
+                            echo "<option value='".$row['nome']."'>".$row['nome']."</option>"; 
                         }
                         echo "</select>";
                     ?>
