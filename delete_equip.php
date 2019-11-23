@@ -39,7 +39,7 @@ if(!empty($_POST))
                 <div class="row">
                     <h3 class="well">Excluir Equipamento</h3>
                 </div>
-                <form class="form-horizontal" action="delete.php" method="post">
+                <form class="form-horizontal" action="delete_equip.php" method="post">
                     <input type="hidden" name="id" value="<?php echo $id;?>" />
                     <div class="alert alert-danger"> Deseja excluir o equipamento?
                     </div>
