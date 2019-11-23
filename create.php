@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="control-group <?php echo !empty($emailErro)?'error ': '';?>">
-                    <label class="control-label">Equip.</label>
+                    <label class="control-label">Equipamento</label>
                     <div class="controls">
                     <?php 
                         include 'banco.php';
@@ -68,7 +68,6 @@
 
                         echo "<select name=\"pcid\">"; 
                         foreach($pdo->query($sql)as $row){
-                            echo "<option size =30 ></option>";
                             echo "<option value='".$row['nome']."'>".$row['nome']."</option>"; 
                         }
                         echo "</select>";
