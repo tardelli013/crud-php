@@ -28,6 +28,7 @@
                             <th scope="col">Endereço</th>
                             <th scope="col">Telefone</th>
                             <th scope="col">Email</th>
+                            <th scope="col">Equipamento</th>
                             <th scope="col">Ação</th>
                         </tr>
                     </thead>
@@ -45,10 +46,9 @@
                             echo '<td>'. $row['endereco'] . '</td>';
                             echo '<td>'. $row['telefone'] . '</td>';
                             echo '<td>'. $row['email'] . '</td>';
+                            echo '<td>'. $row['equipamento'] . '</td>';
                             echo '<td width=250>';
                             echo '<a class="btn btn-primary" href="read.php?id='.$row['id'].'">Info</a>';
-                            echo ' ';
-                            echo '<a class="btn btn-warning" href="update.php?id='.$row['id'].'">Atualizar</a>';
                             echo ' ';
                             echo '<a class="btn btn-danger" href="delete.php?id='.$row['id'].'">Excluir</a>';
                             echo '</td>';

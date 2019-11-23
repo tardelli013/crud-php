@@ -32,7 +32,7 @@
                     <label class="control-label">Endereço</label>
                     <div class="controls">
                         <input size="80" class="form-control" name="endereco" type="text" placeholder="Endereço" required="" value="<?php echo !empty($endereco)?$endereco: '';?>">
-                        <?php if(!empty($emailErro)): ?>
+                        <?php if(!empty($enderecoErro)): ?>
                             <span class="help-inline"><?php echo $enderecoErro;?></span>
                             <?php endif;?>
                     </div>
@@ -66,7 +66,7 @@
                         $pdo = Banco::conectar();
                         $sql = 'SELECT nome FROM equipamento ORDER BY id DESC';
 
-                        echo "<select name=\"pcid\">"; 
+                        echo "<select name=\"equipamento\">"; 
                         foreach($pdo->query($sql)as $row){
                             echo "<option value='".$row['nome']."'>".$row['nome']."</option>"; 
                         }
@@ -108,11 +108,13 @@
         $enderecoErro = null;
         $telefoneErro = null;
         $emailErro = null;
+        $equipamentoErro = null;
 
         $nome = $_POST['nome'];
         $endereco = $_POST['endereco'];
         $telefone = $_POST['telefone'];
         $email = $_POST['email'];
+        $equipamento = $_POST['equipamento'];
 
         //Validaçao dos campos:
         $validacao = true;
@@ -139,6 +141,13 @@
             $telefoneErro = 'Por favor digite o endereço de email';
             $validacao = false;
         }
+
+        if(empty($equipamento))
+        {
+            $equipamentoErro = 'Por favor escolha o equipamento';
+            $validacao = false;
+        }
+
         elseif (!filter_var($email,FILTER_VALIDATE_EMAIL))
         {
             $emailError = 'Por favor digite um endereço de email válido!';
@@ -150,9 +159,9 @@
         {
             $pdo = Banco::conectar();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO pessoa (nome, endereco, telefone, email) VALUES(?,?,?,?)";
+            $sql = "INSERT INTO pessoa (nome, endereco, telefone, email, equipamento) VALUES(?,?,?,?,?)";
             $q = $pdo->prepare($sql);
-            $q->execute(array($nome,$endereco,$telefone,$email));
+            $q->execute(array($nome,$endereco,$telefone,$email,$equipamento));
             Banco::desconectar();
             header("Location: index.php");
         }
