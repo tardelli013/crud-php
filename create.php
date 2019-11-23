@@ -66,8 +66,8 @@
                         $pdo = Banco::conectar();
                         $sql = 'SELECT nome FROM equipamento ORDER BY id DESC';
 
+                        echo "<select name=\"pcid\">"; 
                         foreach($pdo->query($sql)as $row){
-                            echo "<select name=\"pcid\">"; 
                             echo "<option size =30 ></option>";
                             echo "<option value='".$row['nome']."'>".$row['nome']."</option>"; 
                         }
