@@ -48,7 +48,7 @@
                             echo '<td>'. $row['telefone'] . '</td>';
                             echo '<td>'. $row['email'] . '</td>';
                             echo '<td>'. $row['equipamento'] . '</td>';
-                            echo '<td>'. $row['dtreserva'] . '</td>';
+                            echo '<td>'. date_format($row['dtreserva'], 'DD/MM/YYYY') . '</td>';
                             echo '<td width=250>';
                             echo '<a class="btn btn-primary" href="read.php?id='.$row['id'].'">Info</a>';
                             echo ' ';
