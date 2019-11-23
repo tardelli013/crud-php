@@ -61,22 +61,24 @@
                 <div class="control-group <?php echo !empty($equipamentoErro)?'error ': '';?>">
                     <label class="control-label">Equipamento</label>
                     <div class="controls">
-                    <?php 
-                        require 'banco.php';
-                        $pdo2 = Banco::conectar();
-                        $pdo2->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                        $sql2 = "SELECT nome FROM equipamento ORDER BY id DESC";
-                    ?>
-                    <?php 
 
-                        echo "<select name=\"equipamento\">"; 
-                        foreach($pdo2->query($sql2) as $row){
+                    <?php
+                        $conn = mysqli_connect("localhost", "root", "usbw", "agendaphp") or die("Connection Error: " . mysqli_error($conn));
+                        $result = mysqli_query($conn, "SELECT * FROM tbl_country");
+                    ?>
+
+                    <select name="equipamento">
+                    <?php
+                        $i=0;
+                        while($row = mysqli_fetch_array($result)) {
+                        $i++;
                             echo "<option value='".$row['nome']."'>".$row['nome']."</option>"; 
                         }
-                        echo "</select>";
                     ?>
+                    </select>
+
                     <?php 
-                       Banco::desconectar();
+                        mysqli_close($conn);
                     ?>
                     </div>
                 </div>
