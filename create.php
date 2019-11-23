@@ -64,7 +64,7 @@
                     <?php 
 
                         echo "<select name=\"equipamento\" value=\"$equipamento\">"; 
-                        foreach($listEquipamentos as $row)
+                        foreach($listEquipamentos as $row){
                             echo "<option value='".$row['nome']."'>".$row['nome']."</option>"; 
                         }
                         echo "</select>";
