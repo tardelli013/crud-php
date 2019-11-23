@@ -58,6 +58,24 @@
                     </div>
                 </div>
 
+                <div class="control-group <?php echo !empty($emailErro)?'error ': '';?>">
+                    <label class="control-label">Equip.</label>
+                    <div class="controls">
+                    <?
+                        include 'banco.php';
+                        $pdo = Banco::conectar();
+                        $sql = 'SELECT * FROM equipamento ORDER BY id DESC';
+
+                        foreach($pdo->query($sql)as $row){
+                            echo "<select name=\"pcid\">"; 
+                            echo "<option size =30 ></option>";
+                            echo "<option value='".$row['PcID']."'>".$row['PcID']."</option>"; 
+                        }
+                        echo "</select>";
+                    ?>
+                    </div>
+                </div>
+
                 <div class="form-actions">
                     <br/>
 
