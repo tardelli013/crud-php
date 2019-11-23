@@ -46,11 +46,11 @@
                             echo '<td>'. $row['serial'] . '</td>';
                             echo '<td>'. $row['descricao'] . '</td>';
                             echo '<td width=250>';
-                            echo '<a class="btn btn-primary" href="read.php?id='.$row['id'].'">Info</a>';
+                            echo '<a class="btn btn-primary" href="read_equip.php?id='.$row['id'].'">Info</a>';
                             echo ' ';
-                            echo '<a class="btn btn-warning" href="update.php?id='.$row['id'].'">Atualizar</a>';
+                            echo '<a class="btn btn-warning" href="update_equip.php?id='.$row['id'].'">Atualizar</a>';
                             echo ' ';
-                            echo '<a class="btn btn-danger" href="delete.php?id='.$row['id'].'">Excluir</a>';
+                            echo '<a class="btn btn-danger" href="delete_equip.php?id='.$row['id'].'">Excluir</a>';
                             echo '</td>';
                             echo '</tr>';
                         }
