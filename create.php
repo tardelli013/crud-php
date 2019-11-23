@@ -62,7 +62,6 @@
                     <label class="control-label">Equipamento</label>
                     <div class="controls">
                     <?php 
-                        include 'banco.php';
                         $pdo2 = Banco::conectar();
                         $sql2 = 'SELECT nome FROM equipamento ORDER BY id DESC';
 
