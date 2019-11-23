@@ -61,25 +61,24 @@
                 <div class="control-group <?php echo !empty($equipamentoErro)?'error ': '';?>">
                     <label class="control-label">Equipamento</label>
                     <div class="controls">
-
-                    <?php
-                        $conn = mysqli_connect("localhost", "root", "usbw", "agendaphp") or die("Connection Error: " . mysqli_error($conn));
-                        $result = mysqli_query($conn, "SELECT * FROM tbl_country");
-                    ?>
-
-                    <select name="equipamento">
-                    <?php
+                        <?php
+                        $conn = mysqli_connect("localhost:3307", "root", "usbw", "agendaphp") or die("Connection Error: " . mysqli_error($conn));
+                        $result = mysqli_query($conn, "SELECT * FROM equipamento");
+                        ?>
+                        <select name="dynamic_data">
+                        <?php
                         $i=0;
                         while($row = mysqli_fetch_array($result)) {
+                        ?>
+                        <option value="<?=$row["nome"];?>"><?=$row["nome"];?></option>
+                        <?php
                         $i++;
-                            echo "<option value='".$row['nome']."'>".$row['nome']."</option>"; 
                         }
-                    ?>
-                    </select>
-
-                    <?php 
+                        ?>
+                        </select>
+                        <?php
                         mysqli_close($conn);
-                    ?>
+                        ?>
                     </div>
                 </div>
 
