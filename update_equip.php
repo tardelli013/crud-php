@@ -75,7 +75,7 @@
 		$nome = $data['nome'];
         $tipo = $data['tipo'];
         $serial = $data['serial'];
-		$descricao = $descricao['descricao'];
+		$descricao = $data['descricao'];
 		Banco::desconectar();
 	}
 ?>
