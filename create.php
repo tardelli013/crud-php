@@ -63,8 +63,8 @@
                     <div class="controls">
                     <?php 
 
-                        echo "<select name=\"equipamento\">"; 
-                        foreach($pdo2->query($sql2)as $row)
+                        echo "<select name=\"equipamento\" value=\"$equipamento\">"; 
+                        foreach($listEquipamentos as $row)
                             echo "<option value='".$row['nome']."'>".$row['nome']."</option>"; 
                         }
                         echo "</select>";
@@ -167,6 +167,7 @@
 		$pdo2->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$sql2 = "SELECT nome FROM equipamento ORDER BY id DESC";
         
+        $listEquipamentos = $pdo2->query($sql2);
         
 		Banco::desconectar();
     }
