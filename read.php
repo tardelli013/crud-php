@@ -90,7 +90,7 @@
                         <label class="control-label">Email</label>
                         <div class="controls">
                             <label class="carousel-inner">
-                                <?php echo date_format(new DateTime($data['dtreserva'], 'd/m/Y'));?>
+                                <?php echo date_format(new DateTime($data['dtreserva']), 'd/m/Y');?>
                             </label>
                         </div>
                     </div>
