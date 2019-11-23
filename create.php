@@ -63,7 +63,7 @@
                     <div class="controls">
                     <?php 
 
-                        echo "<select name=\"equipamento\" value=\"<?php echo !empty($equipamento)?$equipamento: '';?>\">"; 
+                        echo "<select name=\"equipamento\">"; 
                         foreach($listEquipamentos as $row){
                             echo "<option value='".$row['nome']."'>".$row['nome']."</option>"; 
                         }
