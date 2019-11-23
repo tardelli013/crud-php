@@ -77,6 +77,24 @@
                         </div>
                     </div>
 
+                    <div class="control-group">
+                        <label class="control-label">Equipamento</label>
+                        <div class="controls">
+                            <label class="carousel-inner">
+                                <?php echo $data['equipamento'];?>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Email</label>
+                        <div class="controls">
+                            <label class="carousel-inner">
+                                <?php echo date_format(new DateTime($data['dtreserva']));?>
+                            </label>
+                        </div>
+                    </div>
+
                     <br/>
                     <div class="form-actions">
                         <a href="index.php" type="btn" class="btn btn-default">Voltar</a>
