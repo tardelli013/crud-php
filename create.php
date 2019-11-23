@@ -97,6 +97,8 @@
 <?php
     require 'banco.php';
 
+    $equipamento = null;
+
     if(!empty($_POST))
     {
         //Acompanha os erros de validação
