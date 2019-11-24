@@ -28,7 +28,6 @@ if(!empty($_POST))
     Banco::desconectar();
     ob_start();
     header('Location: index_equip.php'.mt_rand(0, 9999999));
-    exit();
 }
 ?>
 
