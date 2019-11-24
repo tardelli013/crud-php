@@ -17,8 +17,7 @@
 	if ( null==$id )
             {
                 ob_start();
-                header('Location: index_equip.php'.mt_rand(0, 9999999));
-                exit();
+                header('Location: index_equip.php');
             }
 
 	if ( !empty($_POST))
@@ -70,8 +69,7 @@
                     $q->execute(array($nome,$tipo,$serial,$descricao,$id));
                     Banco::desconectar();
                     ob_start();
-                    header('Location: index_equip.php'.mt_rand(0, 9999999));
-                    exit();
+                    header('Location: index_equip.php');
 		}
 	}
         else
