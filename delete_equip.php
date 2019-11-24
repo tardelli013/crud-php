@@ -27,7 +27,7 @@ if(!empty($_POST))
     $q->execute(array($id));
     Banco::desconectar();
     ob_start();
-    header('Location: index_equip.php'.mt_rand(0, 9999999));
+    header('Location: index_equip.php');
 }
 ?>
 
