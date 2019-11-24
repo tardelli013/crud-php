@@ -62,7 +62,7 @@
                     <br/>
 
                     <button type="submit" class="btn btn-success">Adicionar</button>
-                    <a href="index_equip.php" type="btn" class="btn btn-default">Voltar</a>
+                    <a href="./index_equip.php" type="btn" class="btn btn-default">Voltar</a>
 
                 </div>
             </form>
@@ -130,7 +130,7 @@
             $q = $pdo->prepare($sql);
             $q->execute(array($nome,$tipo,$serial,$descricao));
             Banco::desconectar();
-            header("Location: index_equip.php");
+            header("Location: http://agendamentos.pgcopy.com.br/crud-php/index_equip.php");
         }
     }
 ?>

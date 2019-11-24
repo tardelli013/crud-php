@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <title>Adicionar Contato</title>
+  <title>Adicionar Agendamento</title>
 </head>
 
 <body>
@@ -13,7 +13,7 @@
         <div clas="span10 offset1">
           <div class="card">
             <div class="card-header">
-                <h3 class="well"> Adicionar Contato </h3>
+                <h3 class="well"> Adicionar Agendamento </h3>
             </div>
             <div class="card-body">
             <form class="form-horizontal" action="create.php" method="post">
@@ -63,7 +63,7 @@
                     <div class="controls">
                     
                     <?php 
-                        $conn = mysqli_connect("localhost", "root", "usbw", "agendaphp") or die("Connection Error: " . mysqli_error($conn));
+                        $conn = mysqli_connect("localhost", "pgcopyco_admin", "agendamentos@1234", "pgcopyco_agendamentos") or die("Connection Error: " . mysqli_error($conn));
                         $result = mysqli_query($conn, "SELECT * FROM equipamento");
                         echo "<select name=\"equipamento\">"; 
                         $i=0;
@@ -92,7 +92,7 @@
                     <br/>
 
                     <button type="submit" class="btn btn-success">Adicionar</button>
-                    <a href="index.php" type="btn" class="btn btn-default">Voltar</a>
+                    <a href="./index.php" type="btn" class="btn btn-default">Voltar</a>
 
                 </div>
             </form>
@@ -176,7 +176,7 @@
             $q = $pdo->prepare($sql);
             $q->execute(array($nome,$endereco,$telefone,$email,$equipamento,$dataReserva));
             Banco::desconectar();
-            header("Location: index.php");
+            header("Location: http://agendamentos.pgcopy.com.br/crud-php/index.php");
         }
     }
 ?>

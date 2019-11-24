@@ -10,7 +10,7 @@
 
 	if ( null==$id )
             {
-		header("Location: index_equip.php");
+		header('Location: index_equip.php');
             }
 
 	if ( !empty($_POST))
@@ -61,12 +61,12 @@
                     $q = $pdo->prepare($sql);
                     $q->execute(array($nome,$tipo,$serial,$descricao,$id));
                     Banco::desconectar();
-                    header("Location: index_equip.php");
+                    header('Location: index_equip.php');
 		}
 	}
         else
             {
-                $pdo = Banco::conectar();
+        $pdo = Banco::conectar();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$sql = "SELECT * FROM equipamento where id = ?";
 		$q = $pdo->prepare($sql);
@@ -87,7 +87,7 @@
         <meta charset="utf-8">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-				<title>Atualizar Contato</title>
+				<title>Atualizar Equipamento</title>
     </head>
 
     <body>

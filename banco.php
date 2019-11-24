@@ -2,10 +2,10 @@
 
 class Banco
 {
-    private static $dbNome = 'agendaphp';
-    private static $dbHost = 'localhost:3307';
-    private static $dbUsuario = 'root';
-    private static $dbSenha = 'usbw';
+    private static $dbNome = 'pgcopyco_agendamentos';
+    private static $dbHost = 'localhost';
+    private static $dbUsuario = 'pgcopyco_admin';
+    private static $dbSenha = 'agendamentos@1234';
     
     private static $cont = null;
     

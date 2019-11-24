@@ -8,7 +8,7 @@
 
     if(null==$id)
     {
-        header("Location: index_equip.php");
+        header('Location: index_equip.php');
     }
     else
     {
