@@ -1,5 +1,11 @@
 <?php
 
+    header("Cache-Control: no-store, no-cache, must-revalidate"); // HTTP/1.1
+    header("Cache-Control: post-check=0, pre-check=0", false);
+    header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
+    header("Pragma: no-cache"); // HTTP/1.0
+    header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+
 	require 'banco.php';
 
 	$id = null;
@@ -10,7 +16,9 @@
 
 	if ( null==$id )
             {
-		header('Location: index_equip.php');
+                ob_start();
+                header('Location: index_equip.php'.mt_rand(0, 9999999));
+                exit();
             }
 
 	if ( !empty($_POST))
@@ -61,7 +69,9 @@
                     $q = $pdo->prepare($sql);
                     $q->execute(array($nome,$tipo,$serial,$descricao,$id));
                     Banco::desconectar();
-                    header('Location: index_equip.php');
+                    ob_start();
+                    header('Location: index_equip.php'.mt_rand(0, 9999999));
+                    exit();
 		}
 	}
         else
