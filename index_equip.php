@@ -19,6 +19,7 @@
             <div class="row">
                 <p>
                     <a href="create_equip.php" class="btn btn-success">Adicionar</a>
+                    <a href="index.php" class="btn btn-primary">Voltar para Agendamento</a>
                 </p>
                 <table class="table table-striped">
                     <thead>
